@@ -17,4 +17,12 @@ class FindTheLongestWordTest {
         Assertions.assertThat(answer).isEqualTo("study");
     }
 
+    @Test
+    void test2() {
+        String s =  "it is time to study";
+        String answer = findTheLongestWord.solutionWithSubstring(s);
+        System.out.println("answer = " + answer);
+        Assertions.assertThat(answer).isEqualTo("study");
+    }
+
 }

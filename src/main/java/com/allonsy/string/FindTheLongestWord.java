@@ -22,13 +22,35 @@ public class FindTheLongestWord {
 
     public String solution(String sentence) {
         String answer = "";
-        int maxLength = 0;
+        int maxLength = Integer.MIN_VALUE;
 
         for (String s : sentence.split(" ")) {
             if(maxLength < s.length()) {
                 maxLength = s.length();
                 answer = s;
             }
+        }
+
+        return answer;
+    }
+
+    public String solutionWithSubstring(String sentence) {
+        String answer = "";
+        int maxLength = Integer.MIN_VALUE;
+        int pos = 0;
+
+        while ((pos=sentence.indexOf(' ')) != -1) {
+            String tmp = sentence.substring(0, pos);
+            int len = tmp.length();
+            if (maxLength < len) {
+                maxLength = len;
+                answer = tmp;
+            }
+            sentence = sentence.substring(pos + 1);
+        }
+
+        if(maxLength < sentence.length()) {
+            answer = sentence;
         }
 
         return answer;
